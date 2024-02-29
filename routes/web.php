@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\ComicController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,41 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $firstName = 'Gino';
-    $lastName = 'Paoli';
+Route::resource('comics', ComicController::class);
 
-    /*
-        compact: crea un array associativo le cui chiavi sono le stringhe
-                 che mettiamo tra le parentesi, mentre i valori di tali
-                 chiavi sono i valori delle variabili con i nomi corrispondenti
-                 alle stringhe inserite
+/* //read
+Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
+Route::get('/comics/{id}', [ComicController::class, 'show'])->name('comics.show');
 
-        compact('firstName', 'lastName')
-         |                                     |
-         V                                     V
+//create
+Route::get('/comics/create', [ComicController::class, 'create'])->name('comics.create');
+Route::post('/comics/add', [ComicController::class, 'store'])->name('comics.store');
 
-         [
-            'firstName' => $firstName,
-            'lastName' => $lastName,
-         ]
-    */
+//update
+Route::get('/comics/{id}/update', [ComicController::class, 'edit'])->name('comics.edit');
+Route::put('/comics/{request}/{id}/update', [ComicController::class, 'update'])->name('comics.update');
 
-    /*
-        dd: vuol dire dump and die, cioè fai il var_dump (più carino però)
-            e poi stoppa l'esecuzione
-    */
-    // dd(compact('firstName', 'lastName'));
-
-    return view('welcome', [
-        'firstName' => $firstName,
-        'lastName' => $lastName,
-    ]);
-    // return view('welcome', compact('firstName', 'lastName'));
-});
-
-Route::get('/chi-siamo', function () {
-    return view('subpages.about');
-});
-
-// Route::get(PERCORSO CON CUI ARRIVARE ALLA PAGINA, FUNZIONE DI CALLBACK CHE MI CREA LA RISPOSTA DA DARE ALL UTENTE)
+//delete
+Route::delete('/comics/{id}/delete', [ComicController::class, 'destroy'])->name('comics.destroy'); */

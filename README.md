@@ -14,3 +14,6 @@
 - Al posto di npm run build, potreste eseguire npm run dev e lasciarlo attivo
 
 6. Aprire un altro terminale ed eseguire il comando php artisan serve
+
+
+php artisan route:list
