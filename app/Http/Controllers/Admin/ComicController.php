@@ -38,7 +38,9 @@ class ComicController extends Controller
 
         $comicData = $request->all();
 
-        $comic = new Comic();
+        $comic = Comic::create($comicData);
+
+        /* $comic = new Comic();
         $comic->title = $comicData['title'];
         $comic->description = $comicData['description'];
         $comic->thumb = $comicData['thumb'];
@@ -47,7 +49,7 @@ class ComicController extends Controller
         $comic->series = $comicData['series'];
         $comic->sale_date = $comicData['sale_date'];
         $comic->type = $comicData['type'];
-        $comic->save();
+        $comic->save(); */
         
         return redirect()->route('comics.show', ['comic' => $comic->id]);
 }
@@ -74,7 +76,7 @@ class ComicController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Comic $comic)
-    {
+    {++
         $comicData = $request->all();
 
         $comic->update($comicData);
