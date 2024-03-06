@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col">
-        <form action="{{ route('comics.update', ['comic => $comic->id']) }}" method="POST">
+        <form action="{{ route('comics.update', ['comic' => $comic->id]) }}" method="POST">
             @csrf
             @method('PUT')
 
