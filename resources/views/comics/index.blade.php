@@ -5,6 +5,11 @@
 @section('main-content')
 <div class="row">
     <div class="col">
+        <div class="mb-4">
+            <a href="{{ route('comics.create') }}" class="btn btn-primary"">
+                aggiungi
+            </a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
