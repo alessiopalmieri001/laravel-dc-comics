@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 //model
 use App\Models\Comic;
 
+use function Laravel\Prompts\alert;
+
 class ComicController extends Controller
 {
     /**
@@ -76,7 +78,7 @@ class ComicController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, Comic $comic)
-    {++
+    {
         $comicData = $request->all();
 
         $comic->update($comicData);
@@ -97,8 +99,13 @@ class ComicController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        
+
+        $comic->delete();
+
+        return redirect()->route('comics.index');
+
     }
 }
